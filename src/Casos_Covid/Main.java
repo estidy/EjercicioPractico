@@ -19,7 +19,7 @@ public class Main {
 				cantEmpleadosSector = EMPLEADOS - cantEmpleados;
 			}
 			else {
-				cantEmpleadosSector = (int) (Math.random() * (25)) + 1;
+				cantEmpleadosSector = (int) (Math.random() * (20)) + 1;
 				cantEmpleados+=cantEmpleadosSector;
 			}
 			
