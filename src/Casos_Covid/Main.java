@@ -9,17 +9,23 @@ public class Main {
 		final int EMPLEADOS = 50;
 		int sector;
 		int cantCasosGral = 0;
-		int cantEmpleados, cantCasosSector;
+		int cantEmpleadosSector, cantEmpleados=0, cantCasosSector;
 		
 		for(int i=1; i<=3; i++) {
 			System.out.println("\nIngrese sector a evaluar:");
 		    sector = scan.nextInt();
 			scan.nextLine();	
-						
-			cantEmpleados = (int) (Math.random() * (EMPLEADOS)) + 1;
+			if(i == 3) {
+				cantEmpleadosSector = EMPLEADOS - cantEmpleados;
+			}
+			else {
+				cantEmpleadosSector = (int) (Math.random() * (25)) + 1;
+				cantEmpleados+=cantEmpleadosSector;
+			}
+			
 			cantCasosSector= 0;
 			
-			for(int j = 1; j <= cantEmpleados; j++) {
+			for(int j = 1; j <= cantEmpleadosSector; j++) {
 				System.out.println("Ingrese la temperatura:");
 				double temperatura = (int) (Math.random() * (40 - 35) + 35);
 				System.out.println("La temperatura es de: " + temperatura);
@@ -30,10 +36,14 @@ public class Main {
 			}
 			cantCasosGral+=cantCasosSector;
 			
-			double porcentajeSector = ((cantCasosSector * 100) / cantEmpleados);
+			double porcentajeSector = ((cantCasosSector * 100) / cantEmpleadosSector);
 			
-			System.out.println("\nSector: " + sector + "\nCantidad de empleados: " + cantEmpleados + "\nCantidad de casos: "
-					+ cantCasosSector + "\nPorcentaje de casos sospechosos: " + porcentajeSector + "%");			
+			System.out.println("\nSector: " + sector + "\nCantidad de empleados: " + cantEmpleadosSector + "\nCantidad de casos: "
+					+ cantCasosSector + "\nPorcentaje de casos sospechosos: " + porcentajeSector + "%");
+			
+			if(cantCasosSector > 0) {
+				System.out.println("\nEl sector " + sector + " debe aislarse" );
+			}
 			
 		}
 		System.out.println("\nCantidad de casos generales: " + cantCasosGral);
