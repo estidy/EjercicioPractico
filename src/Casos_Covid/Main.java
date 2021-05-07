@@ -7,20 +7,21 @@ public class Main {
 		// DECLARACION DE VARIABLES 
 		Scanner scan = new Scanner(System.in);
 		final int EMPLEADOS = 50;
+		final int SECTORES = 3;
 		int sector;
 		int cantCasosGral = 0;
-		int cantEmpleadosSector, cantEmpleados=0, cantCasosSector;
+		int cantEmpleadosSector, cantEmpleadosEvaluados=0, cantCasosSector;
 		
-		for(int i=1; i<=3; i++) {
+		for(int i=1; i<=SECTORES; i++) {
 			System.out.println("\nIngrese sector a evaluar:");
 		    sector = scan.nextInt();
 			scan.nextLine();	
-			if(i == 3) {
-				cantEmpleadosSector = EMPLEADOS - cantEmpleados;
+			if(i == SECTORES) {
+				cantEmpleadosSector = EMPLEADOS - cantEmpleadosEvaluados;
 			}
 			else {
 				cantEmpleadosSector = (int) (Math.random() * (20)) + 1;
-				cantEmpleados+=cantEmpleadosSector;
+				cantEmpleadosEvaluados+=cantEmpleadosSector;
 			}
 			
 			cantCasosSector= 0;
