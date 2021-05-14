@@ -1,2 +1,3 @@
-# EjercicioPractico
-clase 04-05-2021
+# Trabajo Practico Nro. 2
+Casos Covid - Main.java
+ 
